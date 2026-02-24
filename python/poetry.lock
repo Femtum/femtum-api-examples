@@ -620,7 +620,7 @@ devel = ["colorama", "json-spec", "jsonschema", "pylint", "pytest", "pytest-benc
 
 [[package]]
 name = "femtum-sdk"
-version = "0.46.2"
+version = "0.48.0"
 description = "Femtum SDK"
 optional = false
 python-versions = ">=3.11,<4.0"
@@ -645,8 +645,8 @@ uvicorn = {version = "^0.34.0", extras = ["standard"]}
 [package.source]
 type = "git"
 url = "https://github.com/Femtum/trimming-core.git"
-reference = "main"
-resolved_reference = "c82328e562b141c159696d40e9ed73d0d002a7c7"
+reference = "v0.48.0"
+resolved_reference = "ae62b954e23ac7d1920e4f0c21b7d4ce594f8fea"
 subdirectory = "apps/SDK.Python"
 
 [[package]]
@@ -3533,4 +3533,4 @@ files = [
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.11,<3.14"
-content-hash = "b1dc577fe09807d8d4a62165b097cd6d28c1197069d5528e510ede764dcbeefd"
+content-hash = "6c8625099ee5f70d7db583df9cd166e36e6b3cfbb2f5d5485cb6c2cf067b0ca9"

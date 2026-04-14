@@ -13,7 +13,7 @@ dependencies = [
 package-mode = false
 
 [tool.poetry.dependencies]
-femtum-sdk = { git = "https://github.com/Femtum/trimming-core.git", subdirectory = "apps/SDK.Python", tag = "v0.57.4" }
+femtum-sdk = { git = "https://github.com/Femtum/trimming-core.git", subdirectory = "apps/SDK.Python", branch = "feat(datastore)--associate-recipe-attributes-at-creation" }
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]

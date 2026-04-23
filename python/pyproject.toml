@@ -7,13 +7,14 @@ readme = "README.md"
 requires-python = ">=3.11,<4"
 dependencies = [
     "femtum-sdk",
+    "plotly (>=6.7.0,<7.0.0)",
 ]
 
 [tool.poetry]
 package-mode = false
 
 [tool.poetry.dependencies]
-femtum-sdk = { git = "https://github.com/Femtum/trimming-core.git", subdirectory = "apps/SDK.Python", tag = "v0.57.4" }
+femtum-sdk = { git = "https://github.com/Femtum/trimming-core.git", subdirectory = "apps/SDK.Python", tag = "v0.58.0" }
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]

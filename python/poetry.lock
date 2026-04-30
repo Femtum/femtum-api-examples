@@ -647,8 +647,8 @@ uvicorn = {version = "^0.34.0", extras = ["standard"]}
 [package.source]
 type = "git"
 url = "https://github.com/Femtum/trimming-core.git"
-reference = "v0.58.1"
-resolved_reference = "9783de94a4b8340046346ab25432acfe6bcc9bee"
+reference = "feat(Datastore)--find-laser-execution-by-component-path--FEM-9588-"
+resolved_reference = "b88167d202240a40e2e0942eaf296733d183a18c"
 subdirectory = "apps/SDK.Python"
 
 [[package]]
@@ -3585,4 +3585,4 @@ files = [
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.11,<4"
-content-hash = "0b7b0812a4b521b98efee8699e183270aeb6b2934171f04294db5c305f9c3ffe"
+content-hash = "1ee7ecfd653c041c184cb9fb89840302f2e04dc6b74b1c72c16cf73444f9745b"

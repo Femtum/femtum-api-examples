@@ -1,6 +1,6 @@
 # Femtum SDK / API Examples
 
-Usage examples for the [Femtum SDK](https://github.com/Femtum/trimming-core), demonstrating hardware and datastore APIs.
+Usage examples for the [Femtum SDK](https://pypi.org/project/femtum-sdk/), demonstrating hardware and datastore APIs.
 
 ## Prerequisites
 

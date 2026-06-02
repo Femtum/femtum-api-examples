@@ -622,14 +622,14 @@ devel = ["colorama", "json-spec", "jsonschema", "pylint", "pytest", "pytest-benc
 
 [[package]]
 name = "femtum-sdk"
-version = "0.61.0"
+version = "0.63.1"
 description = "Femtum SDK"
 optional = false
 python-versions = "<4.0,>=3.11"
 groups = ["main"]
 files = [
-    {file = "femtum_sdk-0.61.0-py3-none-any.whl", hash = "sha256:0dbd80d5b4f7bb2d46e1e09b2417e774d91311b09e9ee831a8105e3cb72fbc9f"},
-    {file = "femtum_sdk-0.61.0.tar.gz", hash = "sha256:9ac7f9d268c73b2547d1ae4f5b459f82cdf2d18aa8c5a2aa6733415906d044ca"},
+    {file = "femtum_sdk-0.63.1-py3-none-any.whl", hash = "sha256:bde82aa0ed10ede8b21467878a186da27b70e9dac48b53477c9b256b5a227bcd"},
+    {file = "femtum_sdk-0.63.1.tar.gz", hash = "sha256:ed830808dcb128874e0b6adb9ce694a158f5971ada88aa26b88dfe44407f460a"},
 ]
 
 [package.dependencies]
@@ -3580,4 +3580,4 @@ files = [
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.11,<4"
-content-hash = "4c315bfab00f04e7078b6c83dc9f11b8d20da9862ea7b6833a20db58d87be92a"
+content-hash = "3664d20cfc8b06142382f981b9678c42c8b6d31d127117be9c6dcfe12c46de45"

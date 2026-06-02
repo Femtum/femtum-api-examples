@@ -622,29 +622,34 @@ devel = ["colorama", "json-spec", "jsonschema", "pylint", "pytest", "pytest-benc
 
 [[package]]
 name = "femtum-sdk"
-version = "0.63.1"
+version = "0.63.5"
 description = "Femtum SDK"
 optional = false
-python-versions = "<4.0,>=3.11"
+python-versions = ">=3.11,<4.0"
 groups = ["main"]
-files = [
-    {file = "femtum_sdk-0.63.1-py3-none-any.whl", hash = "sha256:bde82aa0ed10ede8b21467878a186da27b70e9dac48b53477c9b256b5a227bcd"},
-    {file = "femtum_sdk-0.63.1.tar.gz", hash = "sha256:ed830808dcb128874e0b6adb9ce694a158f5971ada88aa26b88dfe44407f460a"},
-]
+files = []
+develop = false
 
 [package.dependencies]
-diskcache = ">=5.6.3,<6.0.0"
-fastapi = ">=0.115.11,<0.116.0"
-grpcio = ">=1.70.0,<2.0.0"
-httpx = ">=0.28.1,<0.29.0"
-injector = ">=0.22.0,<0.23.0"
-numpy = ">=2.2.3,<3.0.0"
-pandas = ">=2.2.3,<3.0.0"
-protobuf = ">=5.29.4,<6.0.0"
-pydantic = ">=2.11.0,<3.0.0"
-pyvisa = ">=1.15.0,<2.0.0"
-scipy = ">=1.15.3,<2.0.0"
-uvicorn = {version = ">=0.34.0,<0.35.0", extras = ["standard"]}
+diskcache = "^5.6.3"
+fastapi = "^0.115.11"
+grpcio = "^1.70.0"
+httpx = "^0.28.1"
+injector = "^0.22.0"
+numpy = "^2.2.3"
+pandas = "^2.2.3"
+protobuf = "^5.29.4"
+pydantic = "^2.11.0"
+pyvisa = "^1.15.0"
+scipy = "^1.15.3"
+uvicorn = {version = "^0.34.0", extras = ["standard"]}
+
+[package.source]
+type = "git"
+url = "ssh://git@github.com/Femtum/trimming-core.git"
+reference = "v0.63.5"
+resolved_reference = "21dae282bcc0a6436c33230b2de2705012a88b42"
+subdirectory = "apps/SDK.Python"
 
 [[package]]
 name = "fqdn"
@@ -3580,4 +3585,4 @@ files = [
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.11,<4"
-content-hash = "3664d20cfc8b06142382f981b9678c42c8b6d31d127117be9c6dcfe12c46de45"
+content-hash = "77f80030d7c27f212043155e1c518f91d5aeece93711c75fb82151af4438d2e8"

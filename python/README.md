@@ -16,6 +16,27 @@ poetry install
 
 This installs the `femtum-sdk` dependency and dev tools (Jupyter, Pillow).
 
+### Keep notebooks output-free
+
+Notebook outputs must never be committed. A shared [`pre-commit`](https://pre-commit.com) hook
+strips them automatically on every commit. Enable it once after cloning:
+
+```bash
+cd python
+poetry install                 # installs pre-commit + nbstripout
+poetry run pre-commit install  # registers the git hook (run from the repo root or any subdir)
+```
+
+After this, `git commit` clears outputs from any staged `.ipynb` files. A GitHub Action
+(`.github/workflows/no-notebook-outputs.yml`) enforces the same rule on every pull request,
+so a notebook with outputs cannot be merged into `main`.
+
+To strip outputs manually at any time:
+
+```bash
+poetry run nbstripout notebooks/*.ipynb
+```
+
 ## Project structure
 
 ```

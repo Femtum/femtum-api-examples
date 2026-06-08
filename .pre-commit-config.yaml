@@ -1,0 +1,13 @@
+# Shared git hooks for this repo.
+# One-time setup for every contributor:
+#   pip install pre-commit   (or: pipx install pre-commit)
+#   pre-commit install
+#
+# After that, Jupyter notebook outputs are stripped automatically on every commit.
+repos:
+  - repo: https://github.com/kynan/nbstripout
+    rev: 0.9.1
+    hooks:
+      - id: nbstripout
+        name: strip jupyter notebook outputs
+        files: \.ipynb$

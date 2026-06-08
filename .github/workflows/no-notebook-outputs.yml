@@ -1,0 +1,43 @@
+name: No notebook outputs
+
+# Fails a pull request if any committed Jupyter notebook still contains
+# cell outputs or execution counts. Uses the same tool (nbstripout) as the
+# local pre-commit hook so CI and local checks stay consistent.
+
+on:
+  pull_request:
+    paths:
+      - "**/*.ipynb"
+
+jobs:
+  check-notebook-outputs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install nbstripout
+        run: pip install "nbstripout==0.9.1"
+
+      - name: Strip outputs from all notebooks
+        run: |
+          shopt -s globstar nullglob
+          files=( **/*.ipynb )
+          if (( ${#files[@]} )); then
+            nbstripout "${files[@]}"
+          else
+            echo "No notebooks found; nothing to strip."
+          fi
+
+      - name: Verify notebooks have no outputs
+        run: |
+          if ! git diff --exit-code; then
+            echo "::error::Jupyter notebook outputs detected. Clear them before committing."
+            echo "Run 'nbstripout <notebook>.ipynb', or install the shared hook: 'pip install pre-commit && pre-commit install'."
+            exit 1
+          fi

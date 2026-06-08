@@ -27,7 +27,12 @@ jobs:
       - name: Strip outputs from all notebooks
         run: |
           shopt -s globstar nullglob
-          nbstripout **/*.ipynb
+          files=( **/*.ipynb )
+          if (( ${#files[@]} )); then
+            nbstripout "${files[@]}"
+          else
+            echo "No notebooks found; nothing to strip."
+          fi
 
       - name: Verify notebooks have no outputs
         run: |

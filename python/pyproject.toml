@@ -14,7 +14,7 @@ dependencies = [
 package-mode = false
 
 [tool.poetry.dependencies]
-femtum-sdk = "v0.64.0"
+femtum-sdk = "0.66.0"
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]

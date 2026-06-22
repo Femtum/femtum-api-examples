@@ -14,7 +14,8 @@ dependencies = [
 package-mode = false
 
 [tool.poetry.dependencies]
-femtum-sdk = "v0.64.0"
+# femtum-sdk = { git = "https://github.com/Femtum/trimming-core.git", subdirectory = "apps/SDK.Python", branch = "main" }
+femtum-sdk = "0.66.2"
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
@@ -26,3 +27,4 @@ ipykernel = "^7.1.0"
 pillow = "^11.0"
 pre-commit = "^4.6.0"
 nbstripout = "^0.9.1"
+

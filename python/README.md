@@ -1,6 +1,6 @@
 # Python - Femtum SDK / API Examples
 
-Usage examples for the [Femtum SDK](https://github.com/Femtum/trimming-core), demonstrating hardware and datastore APIs.
+Usage examples for the [Femtum SDK](https://github.com/Femtum/trimming-core), demonstrating instrument and datastore APIs.
 
 ## Prerequisites
 
@@ -42,9 +42,16 @@ poetry run nbstripout notebooks/*.ipynb
 ```
 python/
   notebooks/           # Jupyter notebooks
-    laser_execute.ipynb
-    laser_head_camera.ipynb
+    create_recipe.ipynb
+    direct_laser_control.ipynb
     fetch_laser_executions.ipynb
+    inline_execution.ipynb
+    laser_energy_calibration.ipynb
+    laser_head_camera.ipynb
+    laser_head_camera_autofocus.ipynb
+    laser_head_camera_illumination.ipynb
+    motion.ipynb
+    trimming_laser_execute.ipynb
   pyproject.toml
 ```
 
@@ -52,9 +59,16 @@ python/
 
 | Notebook | SDK | Description |
 |----------|-----|-------------|
-| **laser_execute** | Hardware | Health check, execution simulation (recipes, geometries) |
-| **laser_head_camera** | Hardware | Health check, capture images from the laser head camera (PNG, PIL) |
-| **fetch_laser_executions** | Datastore | Health check, fetch laser execution data (items, recipe IDs, geometries) |
+| **create_recipe** | Datastore | Create recipes with point and linestring geometries |
+| **direct_laser_control** | Instrument | Read and apply femtosecond laser parameters |
+| **fetch_laser_executions** | Datastore | Fetch laser execution data and download attached images |
+| **inline_execution** | Instrument | Execute a recipe without persisting it to the database |
+| **laser_energy_calibration** | Instrument | Run a laser energy calibration |
+| **laser_head_camera** | Instrument | Capture images, read camera info, set ROI and image parameters |
+| **laser_head_camera_autofocus** | Instrument | Run autofocus and plot the focus score sweep |
+| **laser_head_camera_illumination** | Instrument | Read and update the camera illumination power |
+| **motion** | Instrument | Read positions and drive the 6-DOF stages (relative and absolute) |
+| **trimming_laser_execute** | Trimming + Datastore | Simulate and execute a database recipe, then fetch the result |
 
 ## Usage
 
@@ -67,7 +81,7 @@ Each notebook connects to a daemon running on a Femtum platform. **Before runnin
 Look for a line like this near the top of every notebook:
 
 ```python
-api = HardwareApi(host="localhost:5210")
+api = InstrumentApi(host="localhost:5210")
 #                       ^^^^^^^^^
 #                       👉 replace this with your platform's IP address
 ```
@@ -75,7 +89,7 @@ api = HardwareApi(host="localhost:5210")
 For example, if your Femtum platform is reachable at IP `192.168.1.42`, change the line to:
 
 ```python
-api = HardwareApi(host="192.168.1.42:5210")
+api = InstrumentApi(host="192.168.1.42:5210")
 #                       ^^^^^^^^^^^^
 #                       your platform's IP address (keep the ":5210" port at the end)
 ```
@@ -84,31 +98,32 @@ The same applies to the Datastore API, which uses port `5208` instead:
 
 ```python
 # Before (default — will not work unless the daemon runs locally)
-datastore_api = DatastoreApi(hostUrl="localhost:5208")
+datastore_api = DatastoreApi(host="localhost:5208")
 
 # After (replace with your platform's IP address)
-datastore_api = DatastoreApi(hostUrl="192.168.1.42:5208")
-```
-
-### Concrete example
-
-In `notebooks/laser_execute.ipynb`, line 4 currently reads:
-
-```python
-api = HardwareApi(host="localhost:5210")
-```
-
-Change `localhost` to your platform's IP address — the rest of the line stays the same. For example:
-
-```python
-api = HardwareApi(host="192.168.1.42:5210")
+datastore_api = DatastoreApi(host="192.168.1.42:5208")
 ```
 
 | Part of the string | Keep or change?                              |
 | ------------------ | -------------------------------------------- |
 | `localhost`        | **Change** — replace with your platform's IP |
-| `:5210`            | Keep — this is the Hardware API port         |
+| `:5210`            | Keep — this is the Instrument API port         |
 | `:5208`            | Keep — this is the Datastore API port        |
+
+### Omitting the port
+
+Each API knows its own default port, so the port is optional. These are equivalent:
+
+```python
+InstrumentApi(host="192.168.1.42")            # → 192.168.1.42:5210
+DatastoreApi(host="192.168.1.42")           # → 192.168.1.42:5208
+```
+
+A full URL works too — the scheme is stripped, since gRPC resolves it itself:
+
+```python
+InstrumentApi(host="http://192.168.1.42:5210")
+```
 
 ## Running the notebooks
 

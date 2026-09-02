@@ -1,6 +1,6 @@
 # Femtum SDK / API Examples
 
-Usage examples for the [Femtum SDK](https://pypi.org/project/femtum-sdk/), demonstrating hardware and datastore APIs.
+Usage examples for the [Femtum SDK](https://pypi.org/project/femtum-sdk/), demonstrating instrument and datastore APIs.
 
 ## Prerequisites
 
@@ -21,8 +21,17 @@ This installs the `femtum-sdk` dependency and dev tools (Jupyter, Pillow).
 ```
 python/
   notebooks/           # Jupyter notebooks
-    laser_execute.ipynb
-    laser_head_camera.ipynb
+    create_recipe.ipynb
+    direct_laser_control.ipynb
     fetch_laser_executions.ipynb
+    inline_execution.ipynb
+    laser_energy_calibration.ipynb
+    laser_head_camera.ipynb
+    laser_head_camera_autofocus.ipynb
+    laser_head_camera_illumination.ipynb
+    motion.ipynb
+    trimming_laser_execute.ipynb
   pyproject.toml
 ```
+
+See [python/README.md](python/README.md) for a description of each notebook and how to point them at your platform.

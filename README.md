@@ -21,14 +21,14 @@ This installs the `femtum-sdk` dependency and dev tools (Jupyter, Pillow).
 ```
 python/
   notebooks/           # Jupyter notebooks
-    create_recipe.ipynb
     direct_laser_control.ipynb
     fetch_laser_executions.ipynb
-    inline_execution.ipynb
     laser_energy_calibration.ipynb
     laser_head_camera.ipynb
     laser_head_camera_autofocus.ipynb
     laser_head_camera_illumination.ipynb
+    laser_marking_inline.ipynb
+    laser_marking_using_database.ipynb
     motion.ipynb
     trimming_laser_execute.ipynb
   pyproject.toml

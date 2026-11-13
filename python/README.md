@@ -42,14 +42,14 @@ poetry run nbstripout notebooks/*.ipynb
 ```
 python/
   notebooks/           # Jupyter notebooks
-    create_recipe.ipynb
     direct_laser_control.ipynb
     fetch_laser_executions.ipynb
-    inline_execution.ipynb
     laser_energy_calibration.ipynb
     laser_head_camera.ipynb
     laser_head_camera_autofocus.ipynb
     laser_head_camera_illumination.ipynb
+    laser_marking_inline.ipynb
+    laser_marking_using_database.ipynb
     motion.ipynb
     trimming_laser_execute.ipynb
   pyproject.toml
@@ -59,14 +59,14 @@ python/
 
 | Notebook | SDK | Description |
 |----------|-----|-------------|
-| **create_recipe** | Datastore | Create recipes with point and linestring geometries |
 | **direct_laser_control** | Instrument | Read and apply femtosecond laser parameters |
 | **fetch_laser_executions** | Datastore | Fetch laser execution data and download attached images |
-| **inline_execution** | Instrument | Execute a recipe without persisting it to the database |
 | **laser_energy_calibration** | Instrument | Run a laser energy calibration |
 | **laser_head_camera** | Instrument | Capture images, read camera info, set ROI and image parameters |
 | **laser_head_camera_autofocus** | Instrument | Run autofocus and plot the focus score sweep |
 | **laser_head_camera_illumination** | Instrument | Read and update the camera illumination power |
+| **laser_marking_inline** | Instrument + Datastore | Solve and mark a sketch without storing it, request the log of the run and draw the marked geometries on its pictures |
+| **laser_marking_using_database** | Instrument + Datastore | Store a sketch as a sketch plan in the database, load it back, then solve, rehearse and mark it |
 | **motion** | Instrument | Read positions and drive the 6-DOF stages (relative and absolute) |
 | **trimming_laser_execute** | Trimming + Datastore | Simulate and execute a database recipe, then fetch the result |
 

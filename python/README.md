@@ -44,6 +44,7 @@ python/
   notebooks/           # Jupyter notebooks
     direct_laser_control.ipynb
     fetch_laser_executions.ipynb
+    galvo_distortion_calibration.ipynb
     laser_energy_calibration.ipynb
     laser_head_camera.ipynb
     laser_head_camera_autofocus.ipynb
@@ -61,6 +62,7 @@ python/
 |----------|-----|-------------|
 | **direct_laser_control** | Instrument | Read and apply femtosecond laser parameters |
 | **fetch_laser_executions** | Datastore | Fetch laser execution data and download attached images |
+| **galvo_distortion_calibration** | Instrument | Run a full and an offset galvo calibration, with full-resolution camera pictures before and after |
 | **laser_energy_calibration** | Instrument | Run a laser energy calibration |
 | **laser_head_camera** | Instrument | Capture images, read camera info, set ROI and image parameters |
 | **laser_head_camera_autofocus** | Instrument | Run autofocus and plot the focus score sweep |
